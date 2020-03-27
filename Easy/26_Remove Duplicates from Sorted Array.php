@@ -1,5 +1,5 @@
-// Runtime: 20 ms
-// Memory Usage: 17 MB
+// Runtime: 24 ms
+// Memory Usage: 17.6 MB
 class Solution {
 
     /**
@@ -7,17 +7,7 @@ class Solution {
      * @return Integer
      */
     function removeDuplicates(&$nums) {
-    	$max = count($nums);
-    	$index = 0;
-        for($i = 1; $i < $max; ++$i)
-        {
-        	if($nums[$index] !== $nums[$i])
-        	{
-        		++$index;
-        		$nums[$index] = $nums[$i];
-        	}
-        }
-        
-        return ($index + 1);
+    	$nums = array_values(array_unique($nums)); // 刪除重複然後排序
+        return count($nums);
     }
 }
